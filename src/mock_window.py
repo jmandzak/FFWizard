@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QWidget
+from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QWidget, QPushButton
 from PyQt5.QtGui import QBrush, QColor
 
 
@@ -67,8 +67,31 @@ class MockWindow(QWidget):
         self.my_team.verticalHeader().setVisible(False)
         self.my_team.setHorizontalHeaderLabels(["", "Your Team"])
 
+        # now to set up the buttons to see diff positions
+        self.all_button = QPushButton("All")
+        self.QB_button = QPushButton("QB")
+        self.RB_button = QPushButton("RB")
+        self.WR_button = QPushButton("WR")
+        self.TE_button = QPushButton("TE")
+        self.DEF_button = QPushButton("DEF")
+        self.K_button = QPushButton("K")
+
+        self.draft_button = QPushButton("Draft")
+        self.remove_button = QPushButton("Remove")
+
+        self.position_buttons_split.addWidget(self.all_button)
+        self.position_buttons_split.addWidget(self.QB_button)
+        self.position_buttons_split.addWidget(self.RB_button)
+        self.position_buttons_split.addWidget(self.WR_button)
+        self.position_buttons_split.addWidget(self.TE_button)
+        self.position_buttons_split.addWidget(self.DEF_button)
+        self.position_buttons_split.addWidget(self.K_button)
+        self.position_buttons_split.addSpacing(1000)
+        self.position_buttons_split.addWidget(self.draft_button)
+        self.position_buttons_split.addWidget(self.remove_button)
 
         self.team_player_split.addWidget(self.my_team)
+        self.team_player_split.addLayout(self.position_buttons_split)
 
         self.main_layout.addWidget(self.drafting_teams)
         self.main_layout.addSpacing(100)
