@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidget
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtCore import Qt
 from table_creation import create_all_table, create_QB_table, create_RB_table, create_WR_table, create_TE_table, create_DEF_table, create_K_table, initialize
+from buttons import display_all, display_qb, display_rb, display_wr, display_te, display_def, display_k
 
 class MockWindow(QWidget):
     def __init__(self, num_teams, position) -> None:
@@ -69,12 +70,26 @@ class MockWindow(QWidget):
 
         # now to set up the buttons to see diff positions
         self.all_button = QPushButton("All")
+        self.all_button.clicked.connect(lambda: display_all(self))
+
         self.QB_button = QPushButton("QB")
+        self.QB_button.clicked.connect(lambda: display_qb(self))
+
         self.RB_button = QPushButton("RB")
+        self.RB_button.clicked.connect(lambda: display_rb(self))
+
         self.WR_button = QPushButton("WR")
+        self.WR_button.clicked.connect(lambda: display_wr(self))
+        
         self.TE_button = QPushButton("TE")
+        self.TE_button.clicked.connect(lambda: display_te(self))
+        
         self.DEF_button = QPushButton("DEF")
+        self.DEF_button.clicked.connect(lambda: display_def(self))
+        
         self.K_button = QPushButton("K")
+        self.K_button.clicked.connect(lambda: display_k(self))
+        
 
         self.draft_button = QPushButton("Draft")
         self.remove_button = QPushButton("Remove")
@@ -102,7 +117,20 @@ class MockWindow(QWidget):
         self.position_buttons_split.addWidget(self.remove_button)
 
         self.position_chart_split.addLayout(self.position_buttons_split)
+        self.position_chart_split.addWidget(self.all_table)
+        self.position_chart_split.addWidget(self.qb_table)
+        self.position_chart_split.addWidget(self.rb_table)
+        self.position_chart_split.addWidget(self.wr_table)
+        self.position_chart_split.addWidget(self.te_table)
+        self.position_chart_split.addWidget(self.def_table)
         self.position_chart_split.addWidget(self.k_table)
+
+        self.qb_table.hide()
+        self.rb_table.hide()
+        self.wr_table.hide()
+        self.te_table.hide()
+        self.def_table.hide()
+        self.k_table.hide()
 
         self.team_player_split.addWidget(self.my_team)
         self.team_player_split.addLayout(self.position_chart_split)
