@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QWidget, qApp
+from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QWidget, QInputDialog
 from mock_window import MockWindow
 
 class WelcomeWidget(QWidget):
@@ -38,7 +38,14 @@ class WelcomeWidget(QWidget):
         self.setLayout(self.central_layout)
 
     def mock_draft(self):
-        pass
-        # self.mock = MockWindow()
-        # self.mock.show()
-        # QWidget.qApp.quit()
+        num_teams, okPressed = QInputDialog.getInt(self, "Input Required", "How many teams in the draft?", 8, 6, 14)
+        if not okPressed:
+            return
+
+        position, okPressed = QInputDialog.getInt(self, "Input Required", "What position are you drafting?", 1, 1, num_teams)
+        
+        if not okPressed:
+            return
+
+        self.mock = MockWindow(num_teams, position)
+        self.mock.show()
