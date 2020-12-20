@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidget
 from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtCore import Qt
 from table_creation import create_all_table, create_QB_table, create_RB_table, create_WR_table, create_TE_table, create_DEF_table, create_K_table, initialize
-from buttons import display_all, display_qb, display_rb, display_wr, display_te, display_def, display_k
+from buttons import display_all, display_qb, display_rb, display_wr, display_te, display_def, display_k, draft_player
 
 class MockWindow(QWidget):
     def __init__(self, num_teams, position) -> None:
@@ -92,6 +92,7 @@ class MockWindow(QWidget):
         
 
         self.draft_button = QPushButton("Draft")
+        self.draft_button.clicked.connect(lambda: draft_player(self))
         self.remove_button = QPushButton("Remove")
 
         self.players, self.QBs, self.RBs, self.WRs, self.TEs, self.Ks, self.DEFs = initialize()
