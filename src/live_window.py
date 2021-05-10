@@ -4,13 +4,13 @@ from PyQt5.QtCore import Qt
 from table_creation import create_all_table, create_QB_table, create_RB_table, create_WR_table, create_TE_table, create_DEF_table, create_K_table, initialize
 from buttons import display_all, display_qb, display_rb, display_wr, display_te, display_def, display_k, draft_player, remove_player
 
-class MockWindow(QWidget):
+class LiveWindow(QWidget):
     def __init__(self, num_teams, position) -> None:
-        super(MockWindow, self).__init__()
+        super(LiveWindow, self).__init__()
         self.num_teams = num_teams
         self.position = position
         
-        self.setWindowTitle("Mock Draft")
+        self.setWindowTitle("Live Draft")
         self.setGeometry(0, 0, 1600, 1200)
         self.showMaximized()
 
@@ -22,7 +22,7 @@ class MockWindow(QWidget):
         self.drafting_teams = QTableWidget()
         self.drafting_teams.setRowCount(1)
         self.drafting_teams.setColumnCount(self.num_teams * 16)
-        self.drafting_teams.setMaximumHeight(300)
+        self.drafting_teams.setMaximumHeight(140)
         self.drafting_teams.verticalHeader().setVisible(False)
         self.drafting_teams.horizontalHeader().setVisible(False)
 
@@ -32,13 +32,13 @@ class MockWindow(QWidget):
             if i+1 == self.position:
                 draft_order.append(f'Your Team')
             else:
-                draft_order.append(f'team {i+1}')
+                draft_order.append(f'Team {i+1}')
 
         for i in range(self.num_teams):
             if self.num_teams-i == self.position:
                 draft_order.append(f'Your Team')
             else:
-                draft_order.append(f'team {self.num_teams-i}')
+                draft_order.append(f'Team {self.num_teams-i}')
 
         draft_order *= 8
 

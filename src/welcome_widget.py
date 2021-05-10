@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QWidget, QInputDialog
-from mock_window import MockWindow
+from live_window import LiveWindow
 
 class WelcomeWidget(QWidget):
     def __init__(self):
@@ -20,13 +20,12 @@ class WelcomeWidget(QWidget):
         self.mock_button.setToolTip("Mock Draft")
         self.mock_button.setMaximumWidth(400)
         self.mock_button.setStyleSheet("background-color: darkGray")
-        self.mock_button.clicked.connect(self.mock_draft)
 
         self.live_button = QPushButton("Live Draft")
         self.live_button.setToolTip("Live Draft")
         self.live_button.setMaximumWidth(400)
         self.live_button.setStyleSheet("background-color: darkGray")
-        #self.live_button.clicked.connect(self.open_note)
+        self.live_button.clicked.connect(self.live_draft)
 
         self.central_layout.addWidget(self.main_welcome_label)
         self.central_layout.addWidget(self.welcome_description_label)
@@ -37,7 +36,7 @@ class WelcomeWidget(QWidget):
 
         self.setLayout(self.central_layout)
 
-    def mock_draft(self):
+    def live_draft(self):
         num_teams, okPressed = QInputDialog.getInt(self, "Input Required", "How many teams in the draft?", 8, 6, 14)
         if not okPressed:
             return
@@ -47,5 +46,5 @@ class WelcomeWidget(QWidget):
         if not okPressed:
             return
 
-        self.mock = MockWindow(num_teams, position)
-        self.mock.show()
+        self.live = LiveWindow(num_teams, position)
+        self.live.show()
