@@ -1,5 +1,8 @@
+from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidgetItem
-from PyQt5.Qt import Qt
+from PyQt5.QtCore import Qt, QItemSelectionModel
+from random import choice
+from time import sleep
 
 
 def display_all(window):
@@ -232,7 +235,7 @@ def draft_player(window):
 
 
 def remove_player(window):
-    
+
     # TODO - This code is copied from the first half of draft_player, find way to not repeat code
     content = ""
     position = ""
@@ -331,3 +334,10 @@ def remove_player(window):
         window.all_table.removeRow(row)
 
     window.drafting_teams.removeColumn(0)
+
+def cpu_draft(window):
+    possible_selections = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 6]
+    selection = choice(possible_selections)
+    display_all(window)
+    window.all_table.selectRow(selection)
+    remove_player(window)

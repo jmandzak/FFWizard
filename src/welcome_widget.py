@@ -1,6 +1,7 @@
 from PyQt5.QtGui import QFont
 from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QWidget, QInputDialog
 from live_window import LiveWindow
+from mock_window import MockWindow
 
 class WelcomeWidget(QWidget):
     def __init__(self):
@@ -20,6 +21,7 @@ class WelcomeWidget(QWidget):
         self.mock_button.setToolTip("Mock Draft")
         self.mock_button.setMaximumWidth(400)
         self.mock_button.setStyleSheet("background-color: darkGray")
+        self.mock_button.clicked.connect(self.mock_draft)
 
         self.live_button = QPushButton("Live Draft")
         self.live_button.setToolTip("Live Draft")
@@ -48,3 +50,16 @@ class WelcomeWidget(QWidget):
 
         self.live = LiveWindow(num_teams, position)
         self.live.show()
+
+    def mock_draft(self):
+        num_teams, okPressed = QInputDialog.getInt(self, "Input Required", "How many teams in the draft?", 8, 6, 14)
+        if not okPressed:
+            return
+
+        position, okPressed = QInputDialog.getInt(self, "Input Required", "What position are you drafting?", 1, 1, num_teams)
+        
+        if not okPressed:
+            return
+
+        self.mock = MockWindow(num_teams, position)
+        self.mock.show()
