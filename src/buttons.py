@@ -335,9 +335,20 @@ def remove_player(window):
 
     window.drafting_teams.removeColumn(0)
 
+# cpu drafts a player
 def cpu_draft(window):
+    if window.drafting_teams.itemAt(0,0).text() != "Your Team" and window.row_to_remove != -1:
+        display_all(window)
+        window.all_table.selectRow(window.row_to_remove)
+        remove_player(window)
+        window.row_to_remove = -1
+
+# highlight the pick the cpu is about to make
+def highlight_pick(window):
     possible_selections = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 6]
-    selection = choice(possible_selections)
-    display_all(window)
-    window.all_table.selectRow(selection)
-    remove_player(window)
+
+    if window.drafting_teams.itemAt(0,0).text() != "Your Team" and window.row_to_remove == -1:
+        selection = choice(possible_selections)
+        window.row_to_remove = selection
+        display_all(window)
+        window.all_table.item(selection, 0).setBackground(QBrush(QColor("Red")))

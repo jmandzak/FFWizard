@@ -1,25 +1,34 @@
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QWidget, QPushButton, QRadioButton, QAbstractItemView
+from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QWidget, QPushButton
 from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QTimer
 from table_creation import create_all_table, create_QB_table, create_RB_table, create_WR_table, create_TE_table, create_DEF_table, create_K_table, initialize
 from buttons import *
-#from buttons import cpu_draft, display_all, display_qb, display_rb, display_wr, display_te, display_def, display_k, draft_player, remove_player
 
 class MockWindow(QWidget):
     def __init__(self, num_teams, position) -> None:
         super(MockWindow, self).__init__()
         self.num_teams = num_teams
         self.position = position
-        
+
+        # set up the window
         self.setWindowTitle("Mock Draft")
         self.setGeometry(0, 0, 1600, 1200)
         self.showMaximized()
 
+        # set up timers
+        self.cpu_draft_timer = QTimer()
+        self.highlight_player_timer = QTimer()
+
+        # set variable to see if player is highlighted
+        self.row_to_remove = -1
+
+        # set up button layouts
         self.main_layout = QVBoxLayout()
         self.team_player_split = QHBoxLayout()
         self.position_chart_split = QVBoxLayout()
         self.position_buttons_split = QHBoxLayout()
 
+        # set up draft order
         self.drafting_teams = QTableWidget()
         self.drafting_teams.setRowCount(1)
         self.drafting_teams.setColumnCount(self.num_teams * 16)
@@ -53,7 +62,7 @@ class MockWindow(QWidget):
         self.my_team.setRowCount(16)
         self.my_team.setColumnCount(2)
 
-        # set up the table
+        # set up the table for user team
         self.my_team.setItem(0, 0, QTableWidgetItem("QB"))
         self.my_team.setItem(1, 0, QTableWidgetItem("RB"))
         self.my_team.setItem(2, 0, QTableWidgetItem("RB"))
@@ -96,8 +105,14 @@ class MockWindow(QWidget):
 
         self.draft_button = QPushButton("Draft")
         self.draft_button.clicked.connect(lambda: draft_player(self))
-        self.remove_button = QPushButton("CPU Draft")
-        self.remove_button.clicked.connect(lambda: cpu_draft(self))
+
+        # set up timer to call func to remove players, set to run every 2 seconds
+        self.cpu_draft_timer.timeout.connect(lambda: cpu_draft(self))
+        self.cpu_draft_timer.start(2000)
+
+        # set up timer to call func to highlight player to be removed
+        self.highlight_player_timer.timeout.connect(lambda: highlight_pick(self))
+        self.highlight_player_timer.start(1)
 
         self.players, self.QBs, self.RBs, self.WRs, self.TEs, self.Ks, self.DEFs = initialize()
 
@@ -119,7 +134,6 @@ class MockWindow(QWidget):
         self.position_buttons_split.addWidget(self.K_button)
         self.position_buttons_split.addSpacing(1000)
         self.position_buttons_split.addWidget(self.draft_button)
-        self.position_buttons_split.addWidget(self.remove_button)
 
         self.position_chart_split.addLayout(self.position_buttons_split)
         self.position_chart_split.addWidget(self.all_table)
