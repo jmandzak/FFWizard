@@ -337,7 +337,7 @@ def remove_player(window):
 
 # cpu drafts a player
 def cpu_draft(window):
-    if window.drafting_teams.itemAt(0,0).text() != "Your Team" and window.row_to_remove != -1:
+    if window.drafting_teams.item(0,0).text() != "Your Team" and window.row_to_remove != -1:
         display_all(window)
         window.all_table.selectRow(window.row_to_remove)
         remove_player(window)
@@ -345,10 +345,50 @@ def cpu_draft(window):
 
 # highlight the pick the cpu is about to make
 def highlight_pick(window):
-    possible_selections = [0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 6]
+    possible_selections = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 6]
 
-    if window.drafting_teams.itemAt(0,0).text() != "Your Team" and window.row_to_remove == -1:
+    if window.drafting_teams.item(0,0).text() != "Your Team" and window.row_to_remove == -1:
         selection = choice(possible_selections)
         window.row_to_remove = selection
         display_all(window)
         window.all_table.item(selection, 0).setBackground(QBrush(QColor("Red")))
+
+# adds player to watch list
+def add_player_to_watchlist(window):
+
+    # get name of player
+    if window.all_table.isVisible():
+        content = window.all_table.selectedItems()
+        name = content[0].text()
+    elif window.qb_table.isVisible():
+        content = window.qb_table.selectedItems()
+        name = content[0].text()
+    elif window.rb_table.isVisible():
+        content = window.rb_table.selectedItems()
+        name = content[0].text()
+    elif window.wr_table.isVisible():
+        content = window.wr_table.selectedItems()
+        name = content[0].text()
+    elif window.te_table.isVisible():
+        content = window.te_table.selectedItems()
+        name = content[0].text()
+    elif window.def_table.isVisible():
+        content = window.def_table.selectedItems()
+        name = content[0].text()
+    elif window.k_table.isVisible():
+        content = window.k_table.selectedItems()
+        name = content[0].text()
+
+    # appends a row
+    window.watch_list.insertRow(window.watch_list.rowCount())
+
+    # sets item
+    item = QTableWidgetItem()
+    item.setData(0, name)
+    window.watch_list.setItem(window.watch_list.rowCount()-1, 0, item)
+
+
+# removes player from watch list
+def remove_player_from_watchlist(window):
+    window.watch_list.removeRow(window.watch_list.currentRow())
+    

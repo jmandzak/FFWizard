@@ -1,3 +1,4 @@
+from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QWidget, QPushButton, QAbstractItemView
 from PyQt5.QtCore import Qt
 from data import statsio as parse
@@ -65,43 +66,49 @@ def initialize(ppr=0):
     return players, QBs, RBs, WRs, TEs, Ks, DEFs
 
 def create_all_table(players):
-        all_table = QTableWidget()
-        all_table.setRowCount(len(players))
-        all_table.setColumnCount(7)
-        all_table.setHorizontalHeaderLabels(["Name", "Pos.", "Team", "Rank", "Tier", "SoS", "Composite"])
+        table = QTableWidget()
+        table.setRowCount(len(players))
+        table.setColumnCount(7)
+        table.setHorizontalHeaderLabels(["Name", "Pos.", "Team", "Rank", "Tier", "SoS", "Composite"])
 
         i = 0
         for player in players.values():
             if player.composite == 10000 or player.tier == 0:
                 continue
 
-            all_table.setItem(i, 0, QTableWidgetItem(player.name))
-            all_table.setItem(i, 1, QTableWidgetItem(player.position))
-            all_table.setItem(i, 2, QTableWidgetItem(player.proTeam))
+            table.setItem(i, 0, QTableWidgetItem(player.name))
+            table.setItem(i, 1, QTableWidgetItem(player.position))
+            table.setItem(i, 2, QTableWidgetItem(player.proTeam))
 
             item = QTableWidgetItem()
             item.setData(0, player.avgRank)
-            all_table.setItem(i, 3, item)
+            table.setItem(i, 3, item)
 
             item = QTableWidgetItem()
             item.setData(0, player.tier)
-            all_table.setItem(i, 4, item)
+            table.setItem(i, 4, item)
 
             item = QTableWidgetItem()
             item.setData(0, player.fullSos)
-            all_table.setItem(i, 5, item)
+            table.setItem(i, 5, item)
+            if player.fullSos < 12:
+                table.item(i, 5).setBackground(QBrush(QColor("lightgreen")))
+            elif player.fullSos < 22:
+                table.item(i, 5).setBackground(QBrush(QColor("khaki")))
+            else:
+                table.item(i, 5).setBackground(QBrush(QColor("indianred")))
 
             item = QTableWidgetItem()
             item.setData(0, player.composite)
-            all_table.setItem(i, 6, item)
+            table.setItem(i, 6, item)
 
             i += 1
 
-        all_table.setSortingEnabled(True)
-        all_table.sortByColumn(6, Qt.AscendingOrder)
-        all_table.resizeColumnsToContents()
-        all_table.setSelectionBehavior(QAbstractItemView.SelectRows)
-        return all_table
+        table.setSortingEnabled(True)
+        table.sortByColumn(6, Qt.AscendingOrder)
+        table.resizeColumnsToContents()
+        table.setSelectionBehavior(QAbstractItemView.SelectRows)
+        return table
         
     # create the qb table
 def create_QB_table(players):
@@ -138,6 +145,12 @@ def create_QB_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 6, item)
+        if player.fullSos < 12:
+            table.item(i, 6).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 6).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 6).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
@@ -210,6 +223,12 @@ def create_RB_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 6, item)
+        if player.fullSos < 12:
+            table.item(i, 6).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 6).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 6).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
@@ -285,6 +304,12 @@ def create_WR_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 6, item)
+        if player.fullSos < 12:
+            table.item(i, 6).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 6).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 6).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
@@ -361,6 +386,12 @@ def create_TE_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 6, item)
+        if player.fullSos < 12:
+            table.item(i, 6).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 6).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 6).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
@@ -428,6 +459,12 @@ def create_DEF_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 5, item)
+        if player.fullSos < 12:
+            table.item(i, 5).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 5).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 5).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
@@ -499,6 +536,12 @@ def create_K_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.fullSos)
         table.setItem(i, 5, item)
+        if player.fullSos < 12:
+            table.item(i, 5).setBackground(QBrush(QColor("lightgreen")))
+        elif player.fullSos < 22:
+            table.item(i, 5).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, 5).setBackground(QBrush(QColor("indianred")))
 
         item = QTableWidgetItem()
         item.setData(0, player.playoffSos)
