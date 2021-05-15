@@ -73,9 +73,10 @@ class LiveWindow(QWidget):
 
         # set up watch list
         self.watch_list = QTableWidget()
-        self.watch_list.setColumnCount(1)
-        self.watch_list.setColumnWidth(0, 400)
-        self.watch_list.setHorizontalHeaderLabels(["Watch List"])
+        self.watch_list.setColumnCount(2)
+        self.watch_list.setColumnWidth(0, 50)
+        self.watch_list.setColumnWidth(1, 400)
+        self.watch_list.setHorizontalHeaderLabels(["", "Watch List"])
 
         # now to set up the buttons to see diff positions
         self.all_button = QPushButton("All")
@@ -99,12 +100,9 @@ class LiveWindow(QWidget):
         self.K_button = QPushButton("K")
         self.K_button.clicked.connect(lambda: display_k(self))
         
-        # buttons to add and remove players to/from watchlist
+        # button to add players to watchlist
         self.add_watchlist_button = QPushButton("Add to Watchlist")
         self.add_watchlist_button.clicked.connect(lambda: add_player_to_watchlist(self))
-        
-        self.remove_watchlist_button = QPushButton("Remove From Watchlist")
-        self.remove_watchlist_button.clicked.connect(lambda: remove_player_from_watchlist(self))
 
         # button to draft player to your team
         self.draft_button = QPushButton("Draft")
@@ -130,10 +128,9 @@ class LiveWindow(QWidget):
         self.position_buttons_split.addWidget(self.TE_button)
         self.position_buttons_split.addWidget(self.DEF_button)
         self.position_buttons_split.addWidget(self.K_button)
-        self.position_buttons_split.addSpacing(180)
+        self.position_buttons_split.addSpacing(250)
         self.position_buttons_split.addWidget(self.add_watchlist_button)
-        self.position_buttons_split.addWidget(self.remove_watchlist_button)
-        self.position_buttons_split.addSpacing(180)
+        self.position_buttons_split.addSpacing(250)
         self.position_buttons_split.addWidget(self.draft_button)
         self.position_buttons_split.addWidget(self.remove_button)
 

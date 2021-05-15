@@ -1,8 +1,7 @@
 from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtWidgets import QTableWidgetItem
-from PyQt5.QtCore import Qt, QItemSelectionModel
+from PyQt5.QtWidgets import QTableWidgetItem, QPushButton, QStyle
+from PyQt5.QtCore import Qt
 from random import choice
-from time import sleep
 
 
 def display_all(window):
@@ -382,10 +381,18 @@ def add_player_to_watchlist(window):
     # appends a row
     window.watch_list.insertRow(window.watch_list.rowCount())
 
-    # sets item
+    # sets remove button and player name
+    remove_button = QPushButton("X")
+    remove_button.clicked.connect(lambda: remove_player_from_watchlist(window))
+
+    # not sure why this doesn't work
+    #remove_button.style().standardIcon(QStyle.SP_BrowserStop)
+
+    window.watch_list.setCellWidget(window.watch_list.rowCount()-1, 0, remove_button)
+
     item = QTableWidgetItem()
     item.setData(0, name)
-    window.watch_list.setItem(window.watch_list.rowCount()-1, 0, item)
+    window.watch_list.setItem(window.watch_list.rowCount()-1, 1, item)
 
 
 # removes player from watch list
