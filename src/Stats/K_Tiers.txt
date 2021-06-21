@@ -1,0 +1,51 @@
+
+Tier 1
+1.5 1 Harrison Butker KC 
+1.8 2 Justin Tucker BAL 
+3.2 3 Wil Lutz NO 
+4.1 4 Greg Zuerlein DAL 
+Tier 2
+6.1 5 Robbie Gould SF 
+7.9 6 Matt Prater DET 
+8.9 7 Jake Elliott PHI 
+9.2 8 Zane Gonzalez ARI 
+Tier 3
+11.0 9 Younghoe Koo ATL 
+11.4 10 Ka'imi Fairbairn HOU 
+13.1 11 Dan Bailey MIN 
+14.6 12 Jason Myers SEA 
+14.9 13 Mason Crosby GB 
+14.9 14 Chris Boswell PIT 
+15.1 15 Michael Badgley LAC 
+15.9 16 Brandon McManus DEN 
+Tier 4
+19.0 17 Joey Slye CAR 
+19.9 18 Austin Seibert CLE 
+21.9 19 Josh Lambo JAC 
+11.0 20 Matt Gay FA 
+24.4 21 Daniel Carlson LV 
+26.2 22 Dustin Hopkins WAS 
+20.0 23 Stephen Gostkowski TEN 
+Tier 5
+14.6 24 Ryan Succop TB 
+26.2 25 Randy Bullock CIN 
+23.0 26 Chase McLaughlin FA 
+23.5 27 Sam Sloman LAR 
+23.4 28 Justin Rohrwasser FA 
+22.4 29 Tyler Bass BUF 
+27.2 30 Jason Sanders MIA 
+28.4 31 Eddy Pineiro CHI 
+22.5 32 Stephen Hauschka FA 
+26.2 33 Graham Gano NYG 
+26.5 34 Brett Maher FA 
+24.1 35 Rodrigo Blankenship IND 
+30.6 36 Sam Ficken NYJ 
+Tier 6
+28.9 37 Greg Joseph FA 
+27.9 38 Nick Folk FA 
+28.1 39 Aldrick Rosas FA 
+32.4 40 Adam Vinatieri FA 
+33.6 41 Chandler Catanzaro FA 
+34.8 42 Kai Forbath FA 
+35.8 43 Cairo Santos FA 
+34.7 44 Lirim Hajrullahu FA 

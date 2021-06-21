@@ -1,0 +1,91 @@
+
+Tier 1
+1.4 1 Patrick Mahomes KC 
+1.6 2 Lamar Jackson BAL 
+3.5 3 Dak Prescott DAL 
+Tier 2
+4.7 4 Russell Wilson SEA 
+5.0 5 Kyler Murray ARI 
+5.1 6 Deshaun Watson HOU 
+8.2 7 Josh Allen BUF 
+8.3 8 Matt Ryan ATL 
+Tier 3
+10.1 9 Carson Wentz PHI 
+10.5 10 Drew Brees NO 
+11.1 11 Tom Brady TB 
+12.0 12 Matthew Stafford DET 
+13.6 13 Aaron Rodgers GB 
+15.1 14 Cam Newton NE 
+15.6 15 Daniel Jones NYG 
+16.0 16 Ben Roethlisberger PIT 
+Tier 4
+16.9 17 Jared Goff LAR 
+18.6 18 Baker Mayfield CLE 
+19.1 19 Ryan Tannehill TEN 
+19.1 20 Joe Burrow CIN 
+21.1 21 Gardner Minshew II JAC 
+22.5 22 Kirk Cousins MIN 
+22.9 23 Jimmy Garoppolo SF 
+24.1 24 Philip Rivers IND 
+24.4 25 Drew Lock DEN 
+24.5 26 Teddy Bridgewater CAR 
+26.4 27 Derek Carr LV 
+26.7 28 Sam Darnold NYJ 
+Tier 5
+28.7 29 Tyrod Taylor LAC 
+29.9 30 Dwayne Haskins WAS 
+30.9 31 Ryan Fitzpatrick MIA 
+32.2 32 Nick Foles CHI 
+32.8 33 Tua Tagovailoa MIA 
+33.2 34 Mitch Trubisky CHI 
+34.8 35 Justin Herbert LAC 
+Tier 6
+37.4 36 Jarrett Stidham NE 
+36.6 37 Taysom Hill NO 
+38.5 38 Marcus Mariota LV 
+38.1 39 Jameis Winston NO 
+40.3 40 Andy Dalton DAL 
+39.2 41 Jalen Hurts PHI 
+40.8 42 Jacoby Brissett IND 
+42.6 43 Kyle Allen WAS 
+46.6 44 Case Keenum CLE 
+45.3 45 Jordan Love GB 
+Tier 7
+45.5 46 Robert Griffin BAL 
+46.2 47 Alex Smith WAS 
+48.8 48 Mason Rudolph PIT 
+49.2 49 Josh Rosen FA 
+53.5 50 Nick Mullens SF 
+50.4 51 Jeff Driskel DEN 
+50.6 52 Brett Hundley ARI 
+50.8 53 Phillip Walker CAR 
+53.4 54 Chase Daniel DET 
+52.8 55 Will Grier CAR 
+55.4 56 Joe Flacco NYJ 
+56.4 57 Chad Henne KC 
+58.8 58 Blaine Gabbert TB 
+57.0 59 AJ McCarron HOU 
+57.4 60 Ryan Finley CIN 
+51.4 61 Brian Hoyer NE 
+58.9 62 Matt Schaub ATL 
+59.1 63 Colt McCoy NYG 
+56.8 64 Jacob Eason IND 
+55.2 65 John Wolford LAR 
+56.0 66 Jake Luton JAC 
+61.6 67 Matt Barkley BUF 
+62.3 68 Sean Mannion MIN 
+Tier 8
+60.2 69 Geno Smith SEA 
+60.4 70 Logan Woodside TEN 
+61.8 71 Joshua Dobbs JAC 
+62.2 72 Jake Fromm BUF 
+55.5 73 Nate Sudfeld PHI 
+56.5 74 Cole McDonald FA 
+59.0 75 David Blough DET 
+65.3 76 Mike Glennon JAC 
+65.7 77 James Morgan NYJ 
+68.5 78 C.J. Beathard SF 
+70.0 79 Ryan Griffin TB 
+72.0 80 Chad Kelly IND 
+74.5 81 Matt Moore KC 
+76.0 82 Devlin Hodges PIT 

@@ -1,0 +1,130 @@
+
+Tier 1
+1.3 1 Travis Kelce KC 
+1.8 2 George Kittle SF 
+3.5 3 Mark Andrews BAL 
+3.8 4 Zach Ertz PHI 
+Tier 2
+5.3 5 Darren Waller LV 
+7.0 6 Evan Engram NYG 
+8.4 7 Hunter Henry LAC 
+8.7 8 Tyler Higbee LAR 
+9.5 9 Hayden Hurst ATL 
+Tier 3
+12.5 10 Austin Hooper CLE 
+12.9 11 Mike Gesicki MIA 
+13.1 12 Jared Cook NO 
+13.5 13 Rob Gronkowski TB 
+14.3 14 T.J. Hockenson DET 
+15.1 15 Noah Fant DEN 
+15.3 16 Dallas Goedert PHI 
+15.6 17 Jonnu Smith TEN 
+Tier 4
+17.6 18 Blake Jarwin DAL 
+18.2 19 Jack Doyle IND 
+18.5 20 Chris Herndon IV NYJ 
+20.5 21 Eric Ebron PIT 
+22.8 22 Ian Thomas CAR 
+22.9 23 Irv Smith Jr. MIN 
+25.7 24 Greg Olsen SEA 
+26.5 25 O.J. Howard TB 
+Tier 5
+28.7 26 Dawson Knox BUF 
+28.0 27 Kyle Rudolph MIN 
+28.7 28 Gerald Everett LAR 
+30.4 29 Jimmy Graham CHI 
+29.1 30 Jace Sternberger GB 
+30.7 31 Will Dissly SEA 
+30.6 32 Tyler Eifert JAC 
+33.6 33 David Njoku CLE 
+36.3 34 Vance McDonald PIT 
+39.6 35 Cameron Brate TB 
+Tier 6
+35.6 36 C.J. Uzomah CIN 
+37.2 37 Darren Fells HOU 
+37.3 38 Jordan Akins HOU 
+38.8 39 Trey Burton IND 
+37.2 40 Dan Arnold ARI 
+38.5 41 Devin Asiasi NE 
+45.5 42 Jacob Hollister SEA 
+40.1 43 Nick Boyle BAL 
+45.0 44 Cole Kmet CHI 
+43.6 45 Jason Witten LV 
+44.0 46 Ryan Griffin NYJ 
+39.3 47 Logan Thomas WAS 
+48.1 48 Jeremy Sprinkle WAS 
+Tier 7
+51.2 49 Adam Trautman NO 
+49.3 50 Drew Sample CIN 
+50.9 51 Dalton Keene NE 
+48.9 52 Kaden Smith NYG 
+54.1 53 Foster Moreau LV 
+50.2 54 Jordan Reed SF 
+54.2 55 Mo Alie-Cox IND 
+50.5 56 Anthony Firkser TEN 
+42.6 57 Robert Tonyan GB 
+53.1 58 Maxx Williams ARI 
+57.0 59 Albert Okwuegbunam DEN 
+47.4 60 Delanie Walker FA 
+59.1 61 Kahale Warring HOU 
+56.4 62 Ricky Seals-Jones KC 
+57.0 63 Jesse James DET 
+57.0 64 Jaeden Graham ATL 
+57.6 65 Josh Hill NO 
+Tier 8
+58.9 66 James O'Shaughnessy JAC 
+62.1 67 Dalton Schultz DAL 
+62.1 68 Tyler Kroft BUF 
+59.8 69 Marcedes Lewis GB 
+63.5 70 Josiah Deguara GB 
+61.5 71 Adam Shaheen MIA 
+58.8 72 Thaddeus Moss FA 
+64.0 73 Nick Vannett DEN 
+67.2 74 Harrison Bryant CLE 
+68.0 75 Virgil Green LAC 
+66.2 76 Ross Dwelley SF 
+69.1 77 Brycen Hopkins LAR 
+70.5 78 Hunter Bryant DET 
+70.2 79 Demetrius Harris CHI 
+66.4 80 Jordan Thomas HOU 
+75.8 81 Chris Manhertz CAR 
+73.0 82 Durham Smythe MIA 
+76.1 83 Levine Toilolo NYG 
+72.7 84 MyCole Pruitt TEN 
+Tier 9
+79.8 85 Ryan Izzo NE 
+70.6 86 Jeff Heuerman FA 
+71.6 87 Richard Rodgers WAS 
+76.2 88 Blake Bell DAL 
+77.2 89 Deon Yelder KC 
+73.5 90 Charles Clay FA 
+81.4 91 Tyler Conklin MIN 
+83.2 92 Donald Parham LAC 
+72.0 93 Andrew Beck DEN 
+57.5 94 Caleb Wilson PHI 
+86.6 95 Colby Parkinson SEA 
+62.5 96 Marcus Baugh WAS 
+83.5 97 Khari Lee FA 
+87.6 98 Darrell Daniels ARI 
+77.7 99 Trevon Wesco NYJ 
+91.2 100 Derek Carrier LV 
+86.8 101 Zach Gentry PIT 
+92.6 102 Isaac Nauta DET 
+84.7 103 Lee Smith BUF 
+85.0 104 Cethan Carter CIN 
+87.7 105 Geoff Swaim TEN 
+88.3 106 Joshua Perkins PHI 
+96.5 107 Hale Hentges WAS 
+Tier 10
+94.8 108 Johnny Mundt LAR 
+95.7 109 Jake Butt DEN 
+91.5 110 Jason Croom BUF 
+92.0 111 Temarrick Hemingway CAR 
+89.5 112 Tommy Sweeney BUF 
+90.0 113 Eric Tomlinson NYG 
+90.5 114 Luke Willson SEA 
+92.0 115 Stephen Carlson CLE 
+95.7 116 Charlie Woerner SF 
+93.5 117 Tanner Hudson TB 
+99.7 118 Stephen Anderson LAC 
+105.0 119 Nick Keizer KC 
