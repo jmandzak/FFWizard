@@ -8,6 +8,6 @@ Navigate to the src directory and run `python main.py`. Everything from that poi
 - PyQt5
 
 ## Notes
-This is an app in continuous development. Future plans include using a database to store information about the players, adding a value over replacement field, adding a watch list, etc. The current statistics represent data from before the start of the regular season for the 2020-2021 NFL season.
+This is an app in continuous development. Future plans include using a database to store information about the players, adding a value over replacement field, auto removing players from watch list when drafted, etc. The current statistics represent data from before the start of the regular season for the 2020-2021 NFL season.
 
 Any suggestions or comments can be directed to jmandzak99@gmail.com
