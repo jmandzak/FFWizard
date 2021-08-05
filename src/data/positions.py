@@ -61,6 +61,10 @@ class Player:
         self.pastPPG = 0.0
         self.games = 0
         
+        # std dev
+        self.std_dev = 0
+        self.pos_std_dev = 0
+
         # composite
         self.composite = 10000.0    # this is the money number that figures out a player's actual value
         
