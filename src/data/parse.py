@@ -22,39 +22,45 @@ def GetPlayers(ppr=0):
 
         if stats['POS'] == 'QB':
             player = MakeQB(name, stats)
-            player.position = 'QB'
-            all_players.append(player)
             QBs.append(player)
+            player.position = 'QB'
+            CalcCompositeOverall(player)
+            all_players.append(player)
         
         if stats['POS'] == 'RB':
             player = MakeRB(name, stats, ppr)
-            player.position = 'RB'
-            all_players.append(player)
             RBs.append(player)
+            player.position = 'RB'
+            CalcCompositeOverall(player)
+            all_players.append(player)
         
         if stats['POS'] == 'WR':
             player = MakeWR(name, stats, ppr)
-            player.position = 'WR'
-            all_players.append(player)
             WRs.append(player)
+            player.position = 'WR'
+            CalcCompositeOverall(player)
+            all_players.append(player)
         
         if stats['POS'] == 'TE':
             player = MakeTE(name, stats, ppr)
-            player.position = 'TE'
-            all_players.append(player)
             TEs.append(player)
+            player.position = 'TE'
+            CalcCompositeOverall(player)
+            all_players.append(player)
         
         if stats['POS'] == 'DEF':
             player = MakeDEF(name, stats)
-            player.position = 'DEF'
-            all_players.append(player)
             DEFs.append(player)
+            player.position = 'DEF'
+            CalcCompositeOverall(player)
+            all_players.append(player)
         
         if stats['POS'] == 'K':
             player = MakeK(name, stats)
-            player.position = 'K'
-            all_players.append(player)
             Ks.append(player)
+            player.position = 'K'
+            CalcCompositeOverall(player)
+            all_players.append(player)
 
     return all_players, QBs, RBs, WRs, TEs, Ks, DEFs
         
@@ -66,6 +72,9 @@ def MakeQB(name, stats):
     player.fullSos = stats['FULL_SOS']
     player.seasonSos = stats['SEASON_SOS']
     player.playoffSos = stats['PLAYOFF_SOS']
+    player.starter = stats['STARTER']
+    player.boom = stats['BOOM']
+    player.bust = stats['BUST']
 
     player.pastPPG = stats['AVG_FAN PTS']
     player.avgRank = stats['AVG_RK']
@@ -83,7 +92,7 @@ def MakeQB(name, stats):
     player.rushYard = stats['AVG_RUSH_YDS']
     player.rushTD = stats['AVG_RUSH_TDS']
 
-    CalcComposite(player)
+    CalcCompositePos(player)
     return player
 
 def MakeRB(name, stats, ppr):
@@ -93,6 +102,9 @@ def MakeRB(name, stats, ppr):
     player.fullSos = stats['FULL_SOS']
     player.seasonSos = stats['SEASON_SOS']
     player.playoffSos = stats['PLAYOFF_SOS']
+    player.starter = stats['STARTER']
+    player.boom = stats['BOOM']
+    player.bust = stats['BUST']
 
     # ppr specific
     if ppr:
@@ -113,7 +125,7 @@ def MakeRB(name, stats, ppr):
     player.recYard = stats['AVG_REC_YDS']
     player.recTD = stats['AVG_REC_TDS']
 
-    CalcComposite(player)
+    CalcCompositePos(player)
     return player
 
 def MakeWR(name, stats, ppr):
@@ -123,6 +135,9 @@ def MakeWR(name, stats, ppr):
     player.fullSos = stats['FULL_SOS']
     player.seasonSos = stats['SEASON_SOS']
     player.playoffSos = stats['PLAYOFF_SOS']
+    player.starter = stats['STARTER']
+    player.boom = stats['BOOM']
+    player.bust = stats['BUST']
 
     # ppr specific
     if ppr:
@@ -141,7 +156,7 @@ def MakeWR(name, stats, ppr):
     player.recYard = stats['AVG_REC_YDS']
     player.recTD = stats['AVG_REC_TDS']
 
-    CalcComposite(player)
+    CalcCompositePos(player)
     return player
 
 def MakeTE(name, stats, ppr):
@@ -173,7 +188,7 @@ def MakeDEF(name, stats):
     if not math.isnan(stats['RET TD']):
         player.kickTD = stats['RET TD']
 
-    CalcComposite(player)
+    CalcCompositePos(player)
     return player
 
 def MakeK(name, stats):
@@ -183,6 +198,9 @@ def MakeK(name, stats):
     player.fullSos = stats['FULL_SOS']
     player.seasonSos = stats['SEASON_SOS']
     player.playoffSos = stats['PLAYOFF_SOS']
+    player.starter = stats['STARTER']
+    player.boom = stats['BOOM']
+    player.bust = stats['BUST']
 
     player.pastPPG = stats['AVG_FAN PTS']
     player.avgRank = stats['AVG_RK']
@@ -195,12 +213,19 @@ def MakeK(name, stats):
     player.EPA = stats['AVG_XPA']
     player.EPM = stats['AVG_XPM']
 
-    CalcComposite(player)
+    CalcCompositePos(player)
     return player
 
-def CalcComposite(player):
+def CalcCompositePos(player):
     if player.avgPosRank != 500 and player.avgRank != 500:
-        player.composite = player.avgPosRank + player.avgRank + player.std_dev + player.pos_std_dev + player.tier + player.posTier + (player.fullSos / 4)
+        player.composite = player.avgPosRank * 2 + player.posTier + (player.fullSos / 8)
         player.composite = round(player.composite, 2)
+
+    return player
+
+def CalcCompositeOverall(player):
+    if player.avgRank != 500:
+        player.compositeOverall = player.avgRank * 2 + player.tier + (player.fullSos / 8)
+        player.compositeOverall = round(player.compositeOverall, 2)
 
     return player

@@ -65,8 +65,14 @@ class Player:
         self.std_dev = 0
         self.pos_std_dev = 0
 
+        # boom/bust/starter
+        self.boom = 0
+        self.bust = 0
+        self.starter = 0
+
         # composite
         self.composite = 10000.0    # this is the money number that figures out a player's actual value
+        self.compositeOverall = 10000.0
         
 
     def showStats(self):
