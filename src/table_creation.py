@@ -9,7 +9,7 @@ def initialize(ppr=1):
 def create_all_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Pos.", "Depth", "Team", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "SoS", "Composite"]
+    header_labels = ["Name", "Pos.", "Team", "Depth", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "SoS", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -115,7 +115,7 @@ def create_all_table(players):
 def create_QB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Depth", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
                      "Pass Yards", "Pass TDs", "Interceptions", "Rush Attempts", "Rush Yards", "Rush TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -276,7 +276,7 @@ def create_QB_table(players):
 def create_RB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Depth", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
                      "Rush Att", "Rush Yards", "Rush TDs", "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -440,7 +440,7 @@ def create_RB_table(players):
 def create_WR_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Depth", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
                      "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
