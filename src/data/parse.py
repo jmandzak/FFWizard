@@ -5,7 +5,6 @@ from data.positions import *
 def GetPlayers(ppr=0):
     player_df = pd.read_csv("Stats/master_sheet.csv")
     pd.set_option("display.max_rows", None,)
-    print(player_df.index[player_df.index.duplicated()].unique())
     player_df.set_index('PLAYER NAME', inplace=True)
     players = player_df.to_dict('index')
     QBs = []
@@ -75,6 +74,7 @@ def MakeQB(name, stats):
     player.starter = stats['STARTER']
     player.boom = stats['BOOM']
     player.bust = stats['BUST']
+    player.depth = int(stats['DEPTH'])
 
     player.pastPPG = stats['AVG_FAN PTS']
     player.avgRank = stats['AVG_RK']
@@ -105,6 +105,7 @@ def MakeRB(name, stats, ppr):
     player.starter = stats['STARTER']
     player.boom = stats['BOOM']
     player.bust = stats['BUST']
+    player.depth = int(stats['DEPTH'])
 
     # ppr specific
     if ppr:
@@ -138,13 +139,13 @@ def MakeWR(name, stats, ppr):
     player.starter = stats['STARTER']
     player.boom = stats['BOOM']
     player.bust = stats['BUST']
+    player.depth = int(stats['DEPTH'])
 
     # ppr specific
     if ppr:
         player.pastPPG = stats['PPR_AVG_FAN PTS']
         player.avgRank = stats['PPR_AVG_RK']
         player.avgPosRank = stats['PPR_POS_AVG.']
-        print(player.name, ': ', player.avgPosRank)
         player.tier = stats['PPR_TIERS']
         player.posTier = stats['PPR_POS_TIERS']
         player.std_dev = stats['PPR_STD.DEV_RK']
