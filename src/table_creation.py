@@ -9,7 +9,7 @@ def initialize(ppr=1):
 def create_all_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Pos.", "Team", "Depth", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "SoS", "Composite"]
+    header_labels = ["Name", "Pos.", "Depth", "Team", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "SoS", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
