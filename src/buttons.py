@@ -164,6 +164,12 @@ def draft_player(window):
         row = window.all_table.row(item[0])
         window.all_table.removeRow(row)
 
+    # remove from watchlist if player is there
+    item = window.watch_list.findItems(name, Qt.MatchFixedString)
+    if len(item) > 0:
+        row = window.watch_list.row(item[0])
+        window.watch_list.removeRow(row)
+
 
     # now assign the player to the user's team
     if position == "QB":
@@ -331,6 +337,12 @@ def remove_player(window):
         item = window.all_table.findItems(name, Qt.MatchFixedString)
         row = window.all_table.row(item[0])
         window.all_table.removeRow(row)
+
+    # remove from watchlist if player is there
+    item = window.watch_list.findItems(name, Qt.MatchFixedString)
+    if len(item) > 0:
+        row = window.watch_list.row(item[0])
+        window.watch_list.removeRow(row)
 
     window.drafting_teams.removeColumn(0)
 
