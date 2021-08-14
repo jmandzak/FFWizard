@@ -9,7 +9,7 @@ def initialize(ppr=1):
 def create_all_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Pos.", "Depth", "Team", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "SoS", "Composite"]
+    header_labels = ["Name", "Pos.", "Depth", "Team", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "Season SoS", "Playoff SoS", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -89,11 +89,22 @@ def create_all_table(players):
         pos += 1
 
         item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
+        item.setData(0, player.seasonSos)
         table.setItem(i, pos, item)
-        if player.fullSos < 12:
+        if player.seasonSos < 12:
             table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
+        elif player.seasonSos < 22:
+            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
+        else:
+            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
+        pos += 1
+
+        item = QTableWidgetItem()
+        item.setData(0, player.playoffSos)
+        table.setItem(i, pos, item)
+        if player.playoffSos < 12:
+            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
+        elif player.playoffSos < 22:
             table.item(i, pos).setBackground(QBrush(QColor("khaki")))
         else:
             table.item(i, pos).setBackground(QBrush(QColor("indianred")))
@@ -115,7 +126,7 @@ def create_all_table(players):
 def create_QB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
                      "Pass Yards", "Pass TDs", "Interceptions", "Rush Attempts", "Rush Yards", "Rush TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -198,17 +209,6 @@ def create_QB_table(players):
         pos += 1
 
         item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
-        table.setItem(i, pos, item)
-        if player.fullSos < 12:
-            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
-            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
-        else:
-            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
-        pos += 1
-
-        item = QTableWidgetItem()
         item.setData(0, player.seasonSos)
         table.setItem(i, pos, item)
         if player.seasonSos < 12:
@@ -276,7 +276,7 @@ def create_QB_table(players):
 def create_RB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
                      "Rush Att", "Rush Yards", "Rush TDs", "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -359,17 +359,6 @@ def create_RB_table(players):
         pos += 1
 
         item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
-        table.setItem(i, pos, item)
-        if player.fullSos < 12:
-            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
-            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
-        else:
-            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
-        pos += 1
-
-        item = QTableWidgetItem()
         item.setData(0, player.seasonSos)
         table.setItem(i, pos, item)
         if player.seasonSos < 12:
@@ -440,7 +429,7 @@ def create_RB_table(players):
 def create_WR_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
                      "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -523,17 +512,6 @@ def create_WR_table(players):
         pos += 1
 
         item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
-        table.setItem(i, pos, item)
-        if player.fullSos < 12:
-            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
-            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
-        else:
-            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
-        pos += 1
-
-        item = QTableWidgetItem()
         item.setData(0, player.seasonSos)
         table.setItem(i, pos, item)
         if player.seasonSos < 12:
@@ -595,7 +573,7 @@ def create_TE_table(players):
 def create_DEF_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Fan Pts", "Pos. Rank", "Pos. Tier", "Pos. Std Dev", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Fan Pts", "Pos. Rank", "Pos. Tier", "Pos. Std Dev", "Season Sos", "Playoff SoS",
                      "Sacks", "FR", "INT", "TDs", "Kickoff TDs", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -628,17 +606,6 @@ def create_DEF_table(players):
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
-        pos += 1
-
-        item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
-        table.setItem(i, pos, item)
-        if player.fullSos < 12:
-            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
-            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
-        else:
-            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
         pos += 1
 
         item = QTableWidgetItem()
@@ -704,7 +671,7 @@ def create_DEF_table(players):
 def create_K_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "SoS", "Season Sos", "Playoff SoS",
+    header_labels = ["Name", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
                      "XPM", "XPA", "Composite"]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -773,17 +740,6 @@ def create_K_table(players):
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
-        pos += 1
-
-        item = QTableWidgetItem()
-        item.setData(0, player.fullSos)
-        table.setItem(i, pos, item)
-        if player.fullSos < 12:
-            table.item(i, pos).setBackground(QBrush(QColor("lightgreen")))
-        elif player.fullSos < 22:
-            table.item(i, pos).setBackground(QBrush(QColor("khaki")))
-        else:
-            table.item(i, pos).setBackground(QBrush(QColor("indianred")))
         pos += 1
 
         item = QTableWidgetItem()
