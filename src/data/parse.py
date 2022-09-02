@@ -87,7 +87,7 @@ def MakeQB(name, stats):
     # position specific
     player.passYard = stats['AVG_PASS_YDS']
     player.passTD = stats['AVG_PASS_TDS']
-    player.passInt = stats['AVG_PASS_INT']
+    player.passInt = stats['AVG_INT']
     player.rushAtt = stats['AVG_RUSH_ATT']
     player.rushYard = stats['AVG_RUSH_YDS']
     player.rushTD = stats['AVG_RUSH_TDS']
@@ -121,7 +121,7 @@ def MakeRB(name, stats, ppr):
     player.rushAtt = stats['AVG_RUSH_ATT']
     player.rushYard = stats['AVG_RUSH_YDS']
     player.rushTD = stats['AVG_RUSH_TDS']
-    player.recTarget = stats['AVG_REC_TGT']
+    player.recTarget = stats['AVG_TGT']
     player.receptions = stats['AVG_REC']
     player.recYard = stats['AVG_REC_YDS']
     player.recTD = stats['AVG_REC_TDS']
@@ -152,7 +152,7 @@ def MakeWR(name, stats, ppr):
         player.pos_std_dev = stats['PPR_POS_STD.DEV']
 
     # position specific
-    player.recTarget = stats['AVG_REC_TGT']
+    player.recTarget = stats['AVG_TGT']
     player.receptions = stats['AVG_REC']
     player.recYard = stats['AVG_REC_YDS']
     player.recTD = stats['AVG_REC_TDS']
