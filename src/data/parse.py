@@ -87,7 +87,7 @@ def MakeQB(name, stats):
     # position specific
     player.passYard = stats['AVG_PASS_YDS']
     player.passTD = stats['AVG_PASS_TDS']
-    player.passInt = stats['AVG_INT']
+    player.passInt = stats['AVG_PASS_INT']
     player.rushAtt = stats['AVG_RUSH_ATT']
     player.rushYard = stats['AVG_RUSH_YDS']
     player.rushTD = stats['AVG_RUSH_TDS']
