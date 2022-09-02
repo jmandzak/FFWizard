@@ -77,9 +77,9 @@ def MakeQB(name, stats):
     player.depth = int(stats['DEPTH'])
 
     player.pastPPG = stats['AVG_FAN PTS']
-    player.avgRank = stats['AVG_RK']
+    player.avgRank = stats['AVG_PPR_RK']
     player.avgPosRank = stats['POS_AVG.']
-    player.tier = stats['TIERS']
+    player.tier = stats['PPR_TIERS']
     player.posTier = stats['POS_TIERS']
     player.std_dev = stats['STD.DEV_RK']
     player.pos_std_dev = stats['POS_STD.DEV']
