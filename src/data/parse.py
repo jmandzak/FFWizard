@@ -2,7 +2,7 @@ import pandas as pd
 import math
 from data.positions import *
 
-def GetPlayers(ppr=0):
+def GetPlayers(ppr=1):
     player_df = pd.read_csv("Stats/master_sheet.csv")
     pd.set_option("display.max_rows", None,)
     player_df.set_index('PLAYER NAME', inplace=True)
@@ -77,11 +77,11 @@ def MakeQB(name, stats):
     player.depth = int(stats['DEPTH'])
 
     player.pastPPG = stats['AVG_FAN PTS']
-    player.avgRank = stats['AVG_PPR_RK']
+    player.avgRank = stats['PPR_AVG_RK']
     player.avgPosRank = stats['POS_AVG.']
     player.tier = stats['PPR_TIERS']
     player.posTier = stats['POS_TIERS']
-    player.std_dev = stats['STD.DEV_RK']
+    player.std_dev = stats['PPR_STD.DEV_RK']
     player.pos_std_dev = stats['POS_STD.DEV']
 
     # position specific
