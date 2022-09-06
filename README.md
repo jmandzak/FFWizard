@@ -3,6 +3,7 @@ This project uses PyQt5 in order to help you best prepare for fantasy football.
 
 ## Usage
 ### Non-Software Engineers
+### (Note: Currently broken for mac)
 1. Locate the releases button on the right hand side of the github screen and click it. If you are on a windows machine, download FFWizard.zip. If you are on Mac or Linux, download FFWizardUnix.zip.
 2. Extract the zip file, then go into the FFWizard folder.
 3. Look for either FFWizard or FFWizardUnix file (depending on which you downloaded) and double click the file.
