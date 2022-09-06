@@ -3,3 +3,6 @@ wishlist.txt
 data_collector.py
 MLstuff/
 .venv
+dist/
+build/
+*.spec
