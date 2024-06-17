@@ -226,7 +226,7 @@ def CalcCompositePos(player):
 
 def CalcCompositeOverall(player):
     if player.avgRank != 500:
-        player.compositeOverall = player.avgRank * 2 + player.tier + (player.fullSos / 8)
+        player.compositeOverall = float(player.avgRank) * 2 + float(player.tier) + (float(player.fullSos) / 8)
         player.compositeOverall = round(player.compositeOverall, 2)
 
     return player
