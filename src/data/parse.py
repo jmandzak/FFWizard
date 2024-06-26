@@ -234,6 +234,8 @@ def CalcCompositePos(player):
         player.composite = player.avgPosRank * 2 + player.posTier + (player.fullSos / 8)
         player.composite = round(player.composite, 2)
 
+    if math.isnan(player.composite):
+        player.composite = 10000
     return player
 
 
@@ -244,4 +246,6 @@ def CalcCompositeOverall(player):
         )
         player.compositeOverall = round(player.compositeOverall, 2)
 
+    if math.isnan(player.compositeOverall):
+        player.compositeOverall = 10000
     return player
