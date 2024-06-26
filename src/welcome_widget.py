@@ -1,7 +1,9 @@
 from PyQt5.QtGui import QFont
-from PyQt5.QtWidgets import QLabel, QPushButton, QVBoxLayout, QWidget, QInputDialog
+from PyQt5.QtWidgets import QInputDialog, QLabel, QPushButton, QVBoxLayout, QWidget
+
 from live_window import LiveWindow
 from mock_window import MockWindow
+
 
 class WelcomeWidget(QWidget):
     def __init__(self):
@@ -13,7 +15,9 @@ class WelcomeWidget(QWidget):
         self.main_welcome_label = QLabel("Welcome to FFWizard!")
         self.main_welcome_label.setFont(QFont("Times", 24))
 
-        self.welcome_description_label = QLabel("You're on your way to acing your fantasy football\n draft and crushing the competition. Let's get started!")
+        self.welcome_description_label = QLabel(
+            "You're on your way to acing your fantasy football\n draft and crushing the competition. Let's get started!"
+        )
         self.welcome_description_label.setFont(QFont("Times", 12))
 
         # buttons for mock and live draft
@@ -39,12 +43,16 @@ class WelcomeWidget(QWidget):
         self.setLayout(self.central_layout)
 
     def live_draft(self):
-        num_teams, okPressed = QInputDialog.getInt(self, "Input Required", "How many teams in the draft?", 8, 6, 14)
+        num_teams, okPressed = QInputDialog.getInt(
+            self, "Input Required", "How many teams in the draft?", 8, 6, 14
+        )
         if not okPressed:
             return
 
-        position, okPressed = QInputDialog.getInt(self, "Input Required", "What position are you drafting?", 1, 1, num_teams)
-        
+        position, okPressed = QInputDialog.getInt(
+            self, "Input Required", "What position are you drafting?", 1, 1, num_teams
+        )
+
         if not okPressed:
             return
 
@@ -52,12 +60,16 @@ class WelcomeWidget(QWidget):
         self.live.show()
 
     def mock_draft(self):
-        num_teams, okPressed = QInputDialog.getInt(self, "Input Required", "How many teams in the draft?", 8, 6, 14)
+        num_teams, okPressed = QInputDialog.getInt(
+            self, "Input Required", "How many teams in the draft?", 8, 6, 14
+        )
         if not okPressed:
             return
 
-        position, okPressed = QInputDialog.getInt(self, "Input Required", "What position are you drafting?", 1, 1, num_teams)
-        
+        position, okPressed = QInputDialog.getInt(
+            self, "Input Required", "What position are you drafting?", 1, 1, num_teams
+        )
+
         if not okPressed:
             return
 

@@ -1,7 +1,8 @@
-from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtWidgets import QTableWidgetItem, QPushButton, QStyle
-from PyQt5.QtCore import Qt
 from random import choice
+
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QBrush, QColor
+from PyQt5.QtWidgets import QPushButton, QStyle, QTableWidgetItem
 
 
 def display_all(window):
@@ -13,6 +14,7 @@ def display_all(window):
     window.def_table.hide()
     window.k_table.hide()
 
+
 def display_qb(window):
     window.all_table.hide()
     window.qb_table.show()
@@ -21,6 +23,7 @@ def display_qb(window):
     window.te_table.hide()
     window.def_table.hide()
     window.k_table.hide()
+
 
 def display_rb(window):
     window.all_table.hide()
@@ -31,6 +34,7 @@ def display_rb(window):
     window.def_table.hide()
     window.k_table.hide()
 
+
 def display_wr(window):
     window.all_table.hide()
     window.qb_table.hide()
@@ -39,6 +43,7 @@ def display_wr(window):
     window.te_table.hide()
     window.def_table.hide()
     window.k_table.hide()
+
 
 def display_te(window):
     window.all_table.hide()
@@ -49,6 +54,7 @@ def display_te(window):
     window.def_table.hide()
     window.k_table.hide()
 
+
 def display_def(window):
     window.all_table.hide()
     window.qb_table.hide()
@@ -57,6 +63,7 @@ def display_def(window):
     window.te_table.hide()
     window.def_table.show()
     window.k_table.hide()
+
 
 def display_k(window):
     window.all_table.hide()
@@ -67,11 +74,12 @@ def display_k(window):
     window.def_table.hide()
     window.k_table.show()
 
+
 def draft_player(window):
     content = ""
     position = ""
     name = ""
-    all_table = 0       # used to keep up with if the player was drafted from "all" table or position table
+    all_table = 0  # used to keep up with if the player was drafted from "all" table or position table
 
     # remove the row from the table
     if window.all_table.isVisible():
@@ -170,15 +178,14 @@ def draft_player(window):
         row = window.watch_list.row(item[0])
         window.watch_list.removeRow(row)
 
-
     # now assign the player to the user's team
     if position == "QB":
         if window.my_team.item(0, 1) is None:
             window.my_team.setItem(0, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
 
     elif position == "RB":
@@ -190,10 +197,10 @@ def draft_player(window):
             window.my_team.setItem(6, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
-    
+
     elif position == "WR":
         if window.my_team.item(3, 1) is None:
             window.my_team.setItem(3, 1, QTableWidgetItem(name))
@@ -203,8 +210,8 @@ def draft_player(window):
             window.my_team.setItem(6, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
 
     elif position == "TE":
@@ -212,8 +219,8 @@ def draft_player(window):
             window.my_team.setItem(5, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
 
     elif position == "DEF":
@@ -221,8 +228,8 @@ def draft_player(window):
             window.my_team.setItem(7, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
 
     elif position == "K":
@@ -230,13 +237,11 @@ def draft_player(window):
             window.my_team.setItem(8, 1, QTableWidgetItem(name))
         else:
             for i in range(8):
-                if window.my_team.item(i+9, 1) is None:
-                    window.my_team.setItem(i+9, 1, QTableWidgetItem(name))
+                if window.my_team.item(i + 9, 1) is None:
+                    window.my_team.setItem(i + 9, 1, QTableWidgetItem(name))
                     break
-    
+
     window.drafting_teams.removeColumn(0)
-
-
 
 
 def remove_player(window):
@@ -245,7 +250,7 @@ def remove_player(window):
     content = ""
     position = ""
     name = ""
-    all_table = 0       # used to keep up with if the player was drafted from "all" table or position table
+    all_table = 0  # used to keep up with if the player was drafted from "all" table or position table
 
     # remove the row from the table
     if window.all_table.isVisible():
@@ -346,23 +351,32 @@ def remove_player(window):
 
     window.drafting_teams.removeColumn(0)
 
+
 # cpu drafts a player
 def cpu_draft(window):
-    if window.drafting_teams.item(0,0).text() != "Your Team" and window.row_to_remove != -1:
+    if (
+        window.drafting_teams.item(0, 0).text() != "Your Team"
+        and window.row_to_remove != -1
+    ):
         display_all(window)
         window.all_table.selectRow(window.row_to_remove)
         remove_player(window)
         window.row_to_remove = -1
 
+
 # highlight the pick the cpu is about to make
 def highlight_pick(window):
     possible_selections = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 6]
 
-    if window.drafting_teams.item(0,0).text() != "Your Team" and window.row_to_remove == -1:
+    if (
+        window.drafting_teams.item(0, 0).text() != "Your Team"
+        and window.row_to_remove == -1
+    ):
         selection = choice(possible_selections)
         window.row_to_remove = selection
         display_all(window)
         window.all_table.item(selection, 0).setBackground(QBrush(QColor("Red")))
+
 
 # adds player to watch list
 def add_player_to_watchlist(window):
@@ -398,16 +412,15 @@ def add_player_to_watchlist(window):
     remove_button.clicked.connect(lambda: remove_player_from_watchlist(window))
 
     # not sure why this doesn't work
-    #remove_button.style().standardIcon(QStyle.SP_BrowserStop)
+    # remove_button.style().standardIcon(QStyle.SP_BrowserStop)
 
-    window.watch_list.setCellWidget(window.watch_list.rowCount()-1, 0, remove_button)
+    window.watch_list.setCellWidget(window.watch_list.rowCount() - 1, 0, remove_button)
 
     item = QTableWidgetItem()
     item.setData(0, name)
-    window.watch_list.setItem(window.watch_list.rowCount()-1, 1, item)
+    window.watch_list.setItem(window.watch_list.rowCount() - 1, 1, item)
 
 
 # removes player from watch list
 def remove_player_from_watchlist(window):
     window.watch_list.removeRow(window.watch_list.currentRow())
-    

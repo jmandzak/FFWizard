@@ -1,4 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow
+
 from welcome_widget import WelcomeWidget
 
 
@@ -13,5 +14,5 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.central_widget)
 
         self.setStyleSheet("background-color: lightGray")
-        
+
         self.show()

@@ -1,11 +1,13 @@
 from PyQt5.QtWidgets import QApplication
+
 from welcome_window import MainWindow
+
 
 def main():
     app = QApplication([])
 
     window = MainWindow()
-    #window.show()
+    # window.show()
 
     # This is where the program actually starts
     app.exec_()

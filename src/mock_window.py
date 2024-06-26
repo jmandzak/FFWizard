@@ -1,8 +1,26 @@
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QTableWidget, QTableWidgetItem, QWidget, QPushButton
-from PyQt5.QtGui import QBrush, QColor
 from PyQt5.QtCore import Qt, QTimer
-from table_creation import create_all_table, create_QB_table, create_RB_table, create_WR_table, create_TE_table, create_DEF_table, create_K_table, initialize
+from PyQt5.QtGui import QBrush, QColor
+from PyQt5.QtWidgets import (
+    QHBoxLayout,
+    QPushButton,
+    QTableWidget,
+    QTableWidgetItem,
+    QVBoxLayout,
+    QWidget,
+)
+
 from buttons import *
+from table_creation import (
+    create_all_table,
+    create_DEF_table,
+    create_K_table,
+    create_QB_table,
+    create_RB_table,
+    create_TE_table,
+    create_WR_table,
+    initialize,
+)
+
 
 class MockWindow(QWidget):
     def __init__(self, num_teams, position) -> None:
@@ -40,20 +58,20 @@ class MockWindow(QWidget):
         # set up the drafting teams
         draft_order = []
         for i in range(self.num_teams):
-            if i+1 == self.position:
-                draft_order.append(f'Your Team')
+            if i + 1 == self.position:
+                draft_order.append(f"Your Team")
             else:
-                draft_order.append(f'Team {i+1}')
+                draft_order.append(f"Team {i+1}")
 
         for i in range(self.num_teams):
-            if self.num_teams-i == self.position:
-                draft_order.append(f'Your Team')
+            if self.num_teams - i == self.position:
+                draft_order.append(f"Your Team")
             else:
-                draft_order.append(f'Team {self.num_teams-i}')
+                draft_order.append(f"Team {self.num_teams-i}")
 
         draft_order *= 8
 
-        for i in range(self.num_teams*16):
+        for i in range(self.num_teams * 16):
             self.drafting_teams.setItem(0, i, QTableWidgetItem(draft_order[i]))
 
             if draft_order[i] == "Your Team":
@@ -74,7 +92,7 @@ class MockWindow(QWidget):
         self.my_team.setItem(7, 0, QTableWidgetItem("DEF"))
         self.my_team.setItem(8, 0, QTableWidgetItem("K"))
         for i in range(8):
-            self.my_team.setItem(i+9, 0, QTableWidgetItem("BE"))
+            self.my_team.setItem(i + 9, 0, QTableWidgetItem("BE"))
 
         self.my_team.setColumnWidth(0, 50)
         self.my_team.setColumnWidth(1, 400)
@@ -100,16 +118,16 @@ class MockWindow(QWidget):
 
         self.WR_button = QPushButton("WR")
         self.WR_button.clicked.connect(lambda: display_wr(self))
-        
+
         self.TE_button = QPushButton("TE")
         self.TE_button.clicked.connect(lambda: display_te(self))
-        
+
         self.DEF_button = QPushButton("DEF")
         self.DEF_button.clicked.connect(lambda: display_def(self))
-        
+
         self.K_button = QPushButton("K")
         self.K_button.clicked.connect(lambda: display_k(self))
-        
+
         # button to add players to watchlist
         self.add_watchlist_button = QPushButton("Add to Watchlist")
         self.add_watchlist_button.clicked.connect(lambda: add_player_to_watchlist(self))
@@ -126,7 +144,9 @@ class MockWindow(QWidget):
         self.highlight_player_timer.timeout.connect(lambda: highlight_pick(self))
         self.highlight_player_timer.start(1)
 
-        self.players, self.QBs, self.RBs, self.WRs, self.TEs, self.Ks, self.DEFs = initialize()
+        self.players, self.QBs, self.RBs, self.WRs, self.TEs, self.Ks, self.DEFs = (
+            initialize()
+        )
 
         self.all_table = create_all_table(self.players)
         self.qb_table = create_QB_table(self.QBs)
@@ -135,7 +155,6 @@ class MockWindow(QWidget):
         self.te_table = create_TE_table(self.TEs)
         self.def_table = create_DEF_table(self.DEFs)
         self.k_table = create_K_table(self.Ks)
-
 
         self.position_buttons_split.addWidget(self.all_button)
         self.position_buttons_split.addWidget(self.QB_button)

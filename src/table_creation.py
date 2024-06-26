@@ -1,15 +1,38 @@
-from PyQt5.QtGui import QBrush, QColor
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem, QWidget, QPushButton, QAbstractItemView
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QBrush, QColor
+from PyQt5.QtWidgets import (
+    QAbstractItemView,
+    QPushButton,
+    QTableWidget,
+    QTableWidgetItem,
+    QWidget,
+)
+
 from data import parse
+
 
 def initialize(ppr=1):
     return parse.GetPlayers(ppr)
 
+
 def create_all_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Pos.", "Depth", "Team", "Boom", "Starter", "Bust", "Rank", "Tier", "Std Dev", "Season SoS", "Playoff SoS", "Composite"]
+    header_labels = [
+        "Name",
+        "Pos.",
+        "Depth",
+        "Team",
+        "Boom",
+        "Starter",
+        "Bust",
+        "Rank",
+        "Tier",
+        "Std Dev",
+        "Season SoS",
+        "Playoff SoS",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -117,17 +140,38 @@ def create_all_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
-        
+
     # create the qb table
+
+
 def create_QB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
-                     "Pass Yards", "Pass TDs", "Interceptions", "Rush Attempts", "Rush Yards", "Rush TDs", "Composite"]
+    header_labels = [
+        "Name",
+        "Team",
+        "Depth",
+        "Fan Pts",
+        "Boom",
+        "Starter",
+        "Bust",
+        "Pos. Rank",
+        "Pos. Tier",
+        "Pos Std Dev.",
+        "Season Sos",
+        "Playoff SoS",
+        "Pass Yards",
+        "Pass TDs",
+        "Interceptions",
+        "Rush Attempts",
+        "Rush Yards",
+        "Rush TDs",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -244,7 +288,7 @@ def create_QB_table(players):
         item.setData(0, float(player.passInt))
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.rushAtt))
         table.setItem(i, pos, item)
@@ -267,17 +311,38 @@ def create_QB_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
+
 
 # create the running back table
 def create_RB_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
-                     "Rush Att", "Rush Yards", "Rush TDs", "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
+    header_labels = [
+        "Name",
+        "Team",
+        "Depth",
+        "Fan Pts",
+        "Boom",
+        "Starter",
+        "Bust",
+        "Pos. Rank",
+        "Pos. Tier",
+        "Pos Std Dev.",
+        "Season Sos",
+        "Playoff SoS",
+        "Rush Att",
+        "Rush Yards",
+        "Rush TDs",
+        "Targets",
+        "Receptions",
+        "Rec. Yards",
+        "Rec. TDs",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -352,7 +417,7 @@ def create_RB_table(players):
         item.setData(0, player.posTier)
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
@@ -384,22 +449,22 @@ def create_RB_table(players):
         item.setData(0, float(player.rushAtt))
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.rushYard))
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.rushTD))
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.recTarget))
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.receptions))
         table.setItem(i, pos, item)
@@ -421,16 +486,34 @@ def create_RB_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
 
+
 def create_WR_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Depth", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
-                     "Targets", "Receptions", "Rec. Yards", "Rec. TDs", "Composite"]
+    header_labels = [
+        "Name",
+        "Team",
+        "Depth",
+        "Fan Pts",
+        "Boom",
+        "Starter",
+        "Bust",
+        "Pos. Rank",
+        "Pos. Tier",
+        "Pos Std Dev.",
+        "Season Sos",
+        "Playoff SoS",
+        "Targets",
+        "Receptions",
+        "Rec. Yards",
+        "Rec. TDs",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -438,7 +521,7 @@ def create_WR_table(players):
     for player in players:
         if player.composite == 10000 or player.tier == 0:
             continue
-        
+
         pos = 0
 
         table.setItem(i, pos, QTableWidgetItem(player.name))
@@ -505,7 +588,7 @@ def create_WR_table(players):
         item.setData(0, player.posTier)
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
@@ -560,21 +643,36 @@ def create_WR_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
+
 
 # create TE table
 def create_TE_table(players):
     return create_WR_table(players)
 
+
 # Create Defenses Table
 def create_DEF_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Fan Pts", "Pos. Rank", "Pos. Tier", "Pos. Std Dev", "Season Sos", "Playoff SoS",
-                     "Sacks", "FR", "INT", "TDs", "Kickoff TDs", "Composite"]
+    header_labels = [
+        "Name",
+        "Fan Pts",
+        "Pos. Rank",
+        "Pos. Tier",
+        "Pos. Std Dev",
+        "Season Sos",
+        "Playoff SoS",
+        "Sacks",
+        "FR",
+        "INT",
+        "TDs",
+        "Kickoff TDs",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -602,7 +700,7 @@ def create_DEF_table(players):
         item.setData(0, player.posTier)
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
@@ -662,17 +760,32 @@ def create_DEF_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
+
 
 # Finally add the Ks to a table
 def create_K_table(players):
     table = QTableWidget()
     table.setRowCount(len(players))
-    header_labels = ["Name", "Team", "Fan Pts", "Boom", "Starter", "Bust", "Pos. Rank", "Pos. Tier", "Pos Std Dev.", "Season Sos", "Playoff SoS",
-                     "XPM", "XPA", "Composite"]
+    header_labels = [
+        "Name",
+        "Team",
+        "Fan Pts",
+        "Boom",
+        "Starter",
+        "Bust",
+        "Pos. Rank",
+        "Pos. Tier",
+        "Pos Std Dev.",
+        "Season Sos",
+        "Playoff SoS",
+        "XPM",
+        "XPA",
+        "Composite",
+    ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
 
@@ -736,7 +849,7 @@ def create_K_table(players):
         item.setData(0, player.posTier)
         table.setItem(i, pos, item)
         pos += 1
-        
+
         item = QTableWidgetItem()
         item.setData(0, float(player.pos_std_dev))
         table.setItem(i, pos, item)
@@ -781,7 +894,7 @@ def create_K_table(players):
         i += 1
 
     table.setSortingEnabled(True)
-    table.sortByColumn(len(header_labels)-1, Qt.AscendingOrder)
+    table.sortByColumn(len(header_labels) - 1, Qt.AscendingOrder)
     table.resizeColumnsToContents()
     table.setSelectionBehavior(QAbstractItemView.SelectRows)
     return table
