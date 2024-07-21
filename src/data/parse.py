@@ -109,9 +109,9 @@ def MakeRB(name, stats, ppr):
     player.fullSos = stats["FULL_SOS"]
     player.seasonSos = stats["SEASON_SOS"]
     player.playoffSos = stats["PLAYOFF_SOS"]
-    player.starter = stats["STARTER"]
-    player.boom = stats["BOOM"]
-    player.bust = stats["BUST"]
+    player.starter = stats["PPR_STARTER"]
+    player.boom = stats["PPR_BOOM"]
+    player.bust = stats["PPR_BUST"]
     player.depth = int(stats["DEPTH"])
 
     # ppr specific
@@ -144,9 +144,9 @@ def MakeWR(name, stats, ppr):
     player.fullSos = stats["FULL_SOS"]
     player.seasonSos = stats["SEASON_SOS"]
     player.playoffSos = stats["PLAYOFF_SOS"]
-    player.starter = stats["STARTER"]
-    player.boom = stats["BOOM"]
-    player.bust = stats["BUST"]
+    player.starter = stats["PPR_STARTER"]
+    player.boom = stats["PPR_BOOM"]
+    player.bust = stats["PPR_BUST"]
     player.depth = int(stats["DEPTH"])
 
     # ppr specific
