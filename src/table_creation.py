@@ -10,8 +10,10 @@ from PyQt5.QtWidgets import (
 
 from data import parse
 
+PPR = True
 
-def initialize(ppr=1):
+
+def initialize(ppr=PPR):
     return parse.GetPlayers(ppr)
 
 
@@ -32,6 +34,7 @@ def create_all_table(players):
         "Season SoS",
         "Playoff SoS",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -136,6 +139,14 @@ def create_all_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.compositeOverall)
         table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
+        table.setItem(i, pos, item)
 
         i += 1
 
@@ -171,6 +182,7 @@ def create_QB_table(players):
         "Rush Yards",
         "Rush TDs",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -307,6 +319,14 @@ def create_QB_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.composite)
         table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
+        table.setItem(i, pos, item)
 
         i += 1
 
@@ -342,6 +362,7 @@ def create_RB_table(players):
         "Rec. Yards",
         "Rec. TDs",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -483,6 +504,14 @@ def create_RB_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.composite)
         table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
+        table.setItem(i, pos, item)
         i += 1
 
     table.setSortingEnabled(True)
@@ -513,6 +542,7 @@ def create_WR_table(players):
         "Rec. Yards",
         "Rec. TDs",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -639,6 +669,14 @@ def create_WR_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.composite)
         table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
+        table.setItem(i, pos, item)
 
         i += 1
 
@@ -672,6 +710,7 @@ def create_DEF_table(players):
         "TDs",
         "Kickoff TDs",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -756,6 +795,14 @@ def create_DEF_table(players):
         item = QTableWidgetItem()
         item.setData(0, player.composite)
         table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
+        table.setItem(i, pos, item)
 
         i += 1
 
@@ -785,6 +832,7 @@ def create_K_table(players):
         "XPM",
         "XPA",
         "Composite",
+        "ADP",
     ]
     table.setColumnCount(len(header_labels))
     table.setHorizontalHeaderLabels(header_labels)
@@ -889,6 +937,14 @@ def create_K_table(players):
 
         item = QTableWidgetItem()
         item.setData(0, player.composite)
+        table.setItem(i, pos, item)
+        pos += 1
+
+        item = QTableWidgetItem()
+        if PPR:
+            item.setData(0, player.ppr_adp)
+        else:
+            item.setData(0, player.standard_adp)
         table.setItem(i, pos, item)
 
         i += 1

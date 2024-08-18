@@ -81,6 +81,8 @@ def MakeQB(name, stats):
     player.boom = stats["BOOM"]
     player.bust = stats["BUST"]
     player.depth = int(stats["DEPTH"])
+    player.standard_adp = float(stats["STANDARD_ADP"])
+    player.ppr_adp = float(stats["PPR_ADP"])
 
     player.pastPPG = stats["AVG_FAN PTS"]
     player.avgRank = stats["PPR_AVG_RK"]
@@ -113,6 +115,8 @@ def MakeRB(name, stats, ppr):
     player.boom = stats["PPR_BOOM"]
     player.bust = stats["PPR_BUST"]
     player.depth = int(stats["DEPTH"])
+    player.standard_adp = float(stats["STANDARD_ADP"])
+    player.ppr_adp = float(stats["PPR_ADP"])
 
     # ppr specific
     if ppr:
@@ -148,6 +152,8 @@ def MakeWR(name, stats, ppr):
     player.boom = stats["PPR_BOOM"]
     player.bust = stats["PPR_BUST"]
     player.depth = int(stats["DEPTH"])
+    player.standard_adp = float(stats["STANDARD_ADP"])
+    player.ppr_adp = float(stats["PPR_ADP"])
 
     # ppr specific
     if ppr:
@@ -187,6 +193,8 @@ def MakeDEF(name, stats):
     player.posTier = stats["POS_TIERS"]
     player.std_dev = stats["STD.DEV_RK"]
     player.pos_std_dev = stats["POS_STD.DEV"]
+    player.standard_adp = float(stats["STANDARD_ADP"])
+    player.ppr_adp = float(stats["PPR_ADP"])
 
     if not math.isnan(stats["SACK"]):
         player.sack = stats["SACK"]
@@ -221,6 +229,8 @@ def MakeK(name, stats):
     player.posTier = stats["POS_TIERS"]
     player.std_dev = stats["STD.DEV_RK"]
     player.pos_std_dev = stats["POS_STD.DEV"]
+    player.standard_adp = float(stats["STANDARD_ADP"])
+    player.ppr_adp = float(stats["PPR_ADP"])
 
     player.EPA = stats["AVG_XPA"]
     player.EPM = stats["AVG_XPM"]

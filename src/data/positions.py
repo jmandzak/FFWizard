@@ -75,6 +75,9 @@ class Player:
         # depth chart position
         self.depth = 0
 
+        self.standard_adp: float = 500.0
+        self.ppr_adp: float = 500.0
+
         # composite
         self.composite = (
             10000.0  # this is the money number that figures out a player's actual value
